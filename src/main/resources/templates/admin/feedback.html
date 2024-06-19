@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Feedback List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 0 auto;
+            max-width: 1000px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Feedback List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Question 1</th>
+                    <th>Question 2</th>
+                    <th>Question 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="feedback : ${feedbacks}">
+                    <td th:text="${feedback.bookTitle}">Book Title</td>
+                    <td th:text="${feedback.question1}">Question 1</td>
+                    <td th:text="${feedback.question2}">Question 2</td>
+                    <td th:text="${feedback.question3}">Question 3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

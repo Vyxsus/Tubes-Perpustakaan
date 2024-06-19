@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books by Category</title>
+    <style>
+        /* Reuse the same styles as list.html for consistency */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #333;
+        }
+        .category-menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .category-menu a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+            background-color: white;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+        }
+        .card h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 1em;
+            color: #666;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Books by Category: <span th:text="${category}"></span></h1>
+        </div>
+        <div class="category-menu">
+            <a th:href="@{/books}">All</a>
+            <a th:href="@{/books/category/Buku%20Pembelajaran}">Buku Pembelajaran</a>
+            <a th:href="@{/books/category/Novel}">Novels</a>
+            <a th:href="@{/books/category/Cerpen}">Cerpen</a>
+        </div>
+        <div class="card-container">
+            <div class="card" th:each="book : ${books}" th:onclick="|window.location.href='/books/readText/' + ${book.id}|">
+                <img th:if="${book.imageFileName}" th:src="@{'/uploads/' + ${book.imageFileName}}" alt="Book Image">
+                <h2 th:text="${book.title}"></h2>
+                <p th:text="${book.category}"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

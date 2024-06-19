@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 0 auto;
+            max-width: 1000px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .search-bar input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            transition: background-color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+        .add-button {
+            display: block;
+            width: 200px;
+            margin: 0 auto 20px;
+            padding: 10px 0;
+            background-color: #28a745;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .add-button:hover {
+            background-color: #218838;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .actions a {
+            margin: 0 5px;
+            padding: 5px 10px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .actions a.edit {
+            background-color: #ffc107;
+        }
+        .actions a.edit:hover {
+            background-color: #e0a800;
+        }
+        .actions a.delete {
+            background-color: #dc3545;
+        }
+        .actions a.delete:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Home</h1>
+        <form action="#" method="get" class="search-bar">
+            <input type="text" name="search" placeholder="Search by title">
+            <button type="submit">Search</button>
+        </form>
+        <a href="/admin/addBook" class="add-button">Add New Book</a>
+        <a href="/admin/feedback" class="feedback-link">View Feedback</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.title}">Title</td>
+                    <td th:text="${book.author}">Author</td>
+                    <td th:text="${book.description}">Description</td>
+                    <td class="actions">
+                        <a th:href="@{/admin/edit/{id}(id=${book.id})}" class="edit">Edit</a>
+                        <a th:href="@{/admin/delete/{id}(id=${book.id})}" class="delete" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

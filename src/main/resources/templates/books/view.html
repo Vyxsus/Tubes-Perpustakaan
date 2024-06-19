@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: title">Detail Buku</head>
+<body>
+<div th:replace="layout :: content">
+    <div class="container">
+        <h1 th:text="${novel.title}">Judul Buku</h1>
+        <img th:src="${novel.image}" alt="Cover Image" class="img-fluid">
+        <h2>Penulis: <span th:text="${novel.author}">Nama Penulis</span></h2>
+        <h3>Harga: <span th:text="${novel.price}">0.00</span></h3>
+        <p th:text="${novel.synopsis}">Sinopsis buku ini akan ditampilkan di sini.</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        textarea {
+            height: 100px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Book</h1>
+        <form th:action="@{/admin/edit/{id}(id=${book.id})}" th:object="${book}" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" th:field="*{title}" />
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" th:field="*{author}" />
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" th:field="*{description}"></textarea>
+            </div>
+            <div>
+                <label for="pdfFile">PDF File:</label>
+                <input type="file" id="pdfFile" name="pdfFile" />
+            </div>
+            <div>
+                <label for="imageFile">Image File:</label>
+                <input type="file" id="imageFile" name="imageFile" />
+            </div>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

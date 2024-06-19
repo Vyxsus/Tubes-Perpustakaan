@@ -1,0 +1,34 @@
+2024-06-15 03:49:40 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h1m56s285ms234탎200ns).
+2024-06-15 07:09:35 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h20m11s863ms375탎100ns).
+2024-06-15 08:36:52 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m40s206ms218탎900ns).
+2024-06-15 09:28:37 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m15s74ms929탎400ns).
+2024-06-15 12:06:53 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h2m56s339ms546탎800ns).
+2024-06-15 12:08:24 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m48s271ms887탎500ns).
+2024-06-15 13:50:00 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-15 13:50:00 - HikariPool-1 - Shutdown initiated...
+2024-06-15 13:50:00 - HikariPool-1 - Shutdown completed.
+2024-06-15 13:51:01 - Starting PerpustakaanApplicationTests using Java 17.0.8 with PID 3632 (started by Fathir Nurfadly in C:\Fathir Nurfadly\Project Java\Perpustakaan)
+2024-06-15 13:51:01 - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-15 13:51:01 - No active profile set, falling back to 1 default profile: "default"
+2024-06-15 13:51:04 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-15 13:51:04 - Finished Spring Data repository scanning in 123 ms. Found 2 JPA repository interfaces.
+2024-06-15 13:51:05 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-15 13:51:06 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-15 13:51:06 - HHH000026: Second-level cache disabled
+2024-06-15 13:51:07 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-15 13:51:07 - HikariPool-1 - Starting...
+2024-06-15 13:51:07 - HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/mydatabase user=SA
+2024-06-15 13:51:07 - HikariPool-1 - Start completed.
+2024-06-15 13:51:07 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-15 13:51:09 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-15 13:51:09 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-15 13:51:10 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-15 13:51:10 - User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+2024-06-15 13:51:11 - User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+2024-06-15 13:51:11 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2024-06-15 13:51:12 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4822fc53, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e200307, org.springframework.security.web.context.SecurityContextHolderFilter@5687ba39, org.springframework.security.web.header.HeaderWriterFilter@3ad5f99, org.springframework.web.filter.CorsFilter@6db84cae, org.springframework.security.web.authentication.logout.LogoutFilter@ea3491d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5e08ed28, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6abbdcde, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a10407e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6db59e26, org.springframework.security.web.access.ExceptionTranslationFilter@79a88f45, org.springframework.security.web.access.intercept.AuthorizationFilter@13cec4ff]
+2024-06-15 13:51:13 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/mydatabase'
+2024-06-15 13:51:13 - Started PerpustakaanApplicationTests in 13.412 seconds (process running for 16.756)
+2024-06-15 13:51:14 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-15 13:51:14 - HikariPool-1 - Shutdown initiated...
+2024-06-15 13:51:14 - HikariPool-1 - Shutdown completed.

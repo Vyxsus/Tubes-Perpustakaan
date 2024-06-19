@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Feedback</title>
+</head>
+<body>
+    <h1>Feedback for [[${feedback.book.title}]]</h1>
+    <form th:action="@{/feedback/{bookId}(bookId=${feedback.book.id})}" th:object="${feedback}" method="post">
+        <label for="question1">Question 1:</label>
+        <input type="text" id="question1" th:field="*{question1}" />
+        <br/>
+        <label for="question2">Question 2:</label>
+        <input type="text" id="question2" th:field="*{question2}" />
+        <br/>
+        <label for="question3">Question 3:</label>
+        <input type="text" id="question3" th:field="*{question3}" />
+        <br/>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

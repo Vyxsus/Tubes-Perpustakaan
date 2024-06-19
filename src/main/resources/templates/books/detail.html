@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #333;
+        }
+        .book-detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .book-detail img {
+            width: 200px;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .book-detail h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .book-detail p {
+            font-size: 1em;
+            color: #666;
+        }
+        .read-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .read-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Book Detail</h1>
+        </div>
+        <div class="book-detail">
+            <img th:if="${book.imageFileName}" th:src="@{'/uploads/' + ${book.imageFileName}}" alt="Book Image">
+            <h2 th:text="${book.title}">Book Title</h2>
+            <p><strong>Author:</strong> <span th:text="${book.author}">Author Name</span></p>
+            <p><strong>Category:</strong> <span th:text="${book.category}">Category</span></p>
+            <p><strong>Description:</strong></p>
+            <p th:text="${book.description}">Book Description</p>
+            <a th:href="@{'/books/readText/' + ${book.id}}" class="read-button">Read E-Book</a>
+        </div>
+    </div>
+</body>
+</html>

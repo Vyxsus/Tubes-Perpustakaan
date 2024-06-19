@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #333;
+        }
+        .search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .category-menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .category-menu a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .category-menu select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+            background-color: white;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+        }
+        .card h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 1em;
+            color: #666;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+        .footer h2 {
+            margin-top: 0;
+        }
+        .feedback {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .feedback h3 {
+            margin-top: 0;
+        }
+        .feedback p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Books List</h1>
+            <div class="search-bar">
+                <form action="#" method="get">
+                    <input type="text" name="search" placeholder="Search by title" />
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div class="category-menu">
+                <select onchange="window.location.href=this.value;">
+                    <option value="/books">All</option>
+                    <option value="/books/category/Buku Pembelajaran">Buku Pembelajaran</option>
+                    <option value="/books/category/Novel">Novel</option>
+                    <option value="/books/category/Cerpen">Cerpen</option>
+                </select>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card" th:each="book : ${books}" th:onclick="|window.location.href='/books/detail/' + ${book.id}|">
+                <img th:if="${book.imageFileName}" th:src="@{'/uploads/' + ${book.imageFileName}}" alt="Book Image">
+                <h2 th:text="${book.title}"></h2>
+                <p th:text="${book.category}"></p>
+            </div>            
+        </div>
+    </div>
+</body>
+</html>
